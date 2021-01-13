@@ -10,6 +10,6 @@ Background in traditional architecture and currently learning software architect
 
 Currently learning Clojure
 
-### Contact me
+//### Contact me
 
-[linked-in](https://www.linkedin.com/in/zachcorrea)
+//[linked-in](https://www.linkedin.com/in/zachcorrea)
