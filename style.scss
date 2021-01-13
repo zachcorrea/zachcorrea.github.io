@@ -117,8 +117,8 @@ img {
 }
 
 .date {
-  font-style: italic;
-  color: $lightGray;
+  font-style: none;
+  color: $gray;
 }
 
 // Specify the color of the selection
@@ -196,7 +196,7 @@ img {
   color: $darkGray;
   cursor: pointer;
   font-family: $helveticaNeue;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
 }
