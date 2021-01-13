@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Background in traditional architecture and currently learning software architecture.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Currently learning Clojure
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[zacharycorrea@gmail.com](mailto:zacharycorrea@gmail.com)
