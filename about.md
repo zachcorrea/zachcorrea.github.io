@@ -12,4 +12,4 @@ Currently learning Clojure
 
 ### Contact me
 
-[zacharycorrea@gmail.com](mailto:zacharycorrea@gmail.com)
+[linked-in](https://www.linkedin.com/in/zachcorrea)
