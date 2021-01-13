@@ -1,9 +1,12 @@
 ---
 layout: page
-title: About
+title: Learning
 permalink: /about/
 ---
 
-###learning
+
 
 Clojure / HTML / CSS
+
+
+
