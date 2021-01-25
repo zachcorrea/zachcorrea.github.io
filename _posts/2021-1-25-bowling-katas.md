@@ -7,7 +7,7 @@ The past couple weeks have been trying. Starting the bowling kata seemed straigh
 
 After review with my mentor it came to his attention that there was a fatal flaw in the system. The code was correct, but somehow terminal was throwing errors and passes randomly. Terminal was not returning correct information at all... this whole time... I didn't realize terminal could return anything but the right answer, which is why I didnt speak up sooner. I just figured my code was wrong ((((most likely a parenthesis)))).
 
-After a bit of celebration knowing I wasnt going crazy and or completely incompitent as future programmer, my mentor figured out what the issue was. a space. I named the folder "bowling katas" not realizing the storm that would ensue for breaking one of the foundational laws of computational canon. I promptly removed the space in the folder name. 
+After a bit of celebration knowing I wasn't going crazy and or completely incompitent as future programmer, my mentor figured out what the issue was. a space. I named the folder "bowling katas" not realizing the storm that would ensue for breaking one of the foundational laws of computational canon. I promptly removed the space in the folder name. 
 
 It worked. 
 
