@@ -18,6 +18,6 @@ Lessons learned:
 
 1) If I run into a problem that confounds me, I may not be TOTALLY incompitent at coding and just running into a system problem. 
 
-2) I should contact my mentor after a reasonable amount of time spent troubleshooting the issue myself, instead of spending two weeks troubleshooting a problem in the code that didnt exist.
+2) I should contact my mentor after a reasonable amount of time spent troubleshooting the issue myself, instead of spending two weeks troubleshooting a problem in the code that didn't exist.
 
 3) Never add a space to your folder name. :)
