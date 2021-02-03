@@ -31,7 +31,18 @@ After completing another round of the bowling-game kata, I decide to try my hand
 (defn- to-frames [rolls]
   (lazy-seq (cons (rolls-for-frame rolls)
                   (to-frames (rest-rolls rolls)))))
+				  
 (defn score [rolls]
   (sum (map sum (take 10 (to-frames rolls)))))
 ```
 
+The first thing I notice is the function `rest-rolls`. This can be refactored with the new `spare?` function that was already created. making it read as the following instead:
+
+```
+(defn- rest-rolls [rolls]
+	(if (strike? rolls)
+	(drop 1 rolls)
+	(drop 2 rolls)))
+```
+
+That's a little bit cleaner, but I think I can refactor a little more. Looking at this `score` function, I think it's doing two things, when it could really be doing just one. currently, It is taking a series of 10 frames rolls (eg. `[5 5 3] [3 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0]`)
