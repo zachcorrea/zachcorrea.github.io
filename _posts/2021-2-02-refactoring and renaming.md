@@ -36,7 +36,16 @@ After completing another round of the bowling-game kata, I decide to try my hand
   (sum (map sum (take 10 (to-frames rolls)))))
 ```
 
-The first thing I notice is the function `rest-rolls`. This can be refactored with the new `spare?` function that was already created. making it read as the following instead:
+The first thing I notice is the function `rest-rolls`. 
+
+```clojure
+(defn- rest-rolls [rolls]
+  (if (= 10 (first rolls))
+    (drop 1 rolls)
+    (drop 2 rolls)))
+```
+
+This can be refactored with the new `spare?` function that was already created. making it read as the following instead:
 
 ```clojure
 (defn- rest-rolls [rolls]
@@ -52,9 +61,27 @@ That's a little bit cleaner, but I think I can refactor a little more. Looking a
   (sum (map sum (take 10 (to-frames rolls)))))
 ```
 
-currently, It is taking a series of 10 frame rolls being passed into it (eg. `[5 5 3] [3 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0]`) and summing the numbers within each vector. This results in a series that looks like this: `[13] [3] [0] [0] [0] [0] [0] [0] [0] [0]` That series then gets passed into another sum function which adds each frame roll together into a singel total score (eg. `[16]`). I want to separate these into two separate functions and name them a bit more distinctly. 
+currently, It is taking a series of 10 frame rolls being passed into it 
 
-I'll rename the `score` function to `total-score` (eg. `[16]` ) in effort to distinguish it from our refactored function `frame-scores` (eg. `[13] [3] [0] [0] [0] [0] [0] [0] [0] [0]`) which sequences the sum of the rolls for each frame.
+(eg. `[5 5 3] [3 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0]`)
+
+and adding the numbers within each frame. This results in a series that looks like this: 
+
+`[13] [3] [0] [0] [0] [0] [0] [0] [0] [0]` 
+
+This new series then gets passed into another sum function which adds each frame roll together into a singel total score (eg. `[16]`). I want to separate these into two separate functions and name them a bit more distinctly.
+
+
+I'll rename the `score` function to `total-score` 
+
+(eg. `[16]` ) 
+
+in effort to distinguish it from our refactored function `frame-scores` 
+
+(eg. `[13] [3] [0] [0] [0] [0] [0] [0] [0] [0]`) 
+
+which sequences the sum of the rolls for each frame.
+
 
 ```clojure
 (defn- frame-scores [rolls]
@@ -64,23 +91,38 @@ I'll rename the `score` function to `total-score` (eg. `[16]` ) in effort to dis
 	(sum (frame-scores rolls)))
 ```
 
-I wish to rename the `to-frames` function to something that more clearly depicts its job of sequencing a list of the all the rolls for each frame (eg. `[5 5 3] [3 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0]` ). let's try `all-frame-rolls`
+I wish to rename the `to-frames` function to something that more clearly depicts its job of sequencing a list of the all the rolls for each frame 
+
+(eg. `[5 5 3] [3 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0] [0 0]` )
+
+let's try `all-frame-rolls`
+
+
 
 ```clojure
 (defn- all-frame-rolls [rolls]
-	(lazy-seq (cons (frame-roll rolls)
+	(lazy-seq (cons (rolls-for-frame rolls)
 					(all-frame-rolls (rest-rolls rolls)))))
 
 ```
-Now I want to rename the `rolls-for-frame` function to create a creater association between it and the `all-frame-rolls`. So I'll name it `frame-rolls`, because it determines how many rolls will be in each frame.
+Now I want to rename the `rolls-for-frame` function to create a greater association between it and the `all-frame-rolls`. So I'll name it `frame-rolls`, because it determines how many rolls will be in each frame.
+
 
 ```clojure
 (defn- frame-rolls [rolls]
 	(if (or (strike? rolls) (spare? rolls))
 	(take 3 rolls)
 	(take 2 rolls)))
+	
+(defn- all-frame-rolls [rolls]
+	(lazy-seq (cons (frame-rolls rolls)
+					(all-frame-rolls (rest-rolls rolls)))))
+
 ```
-Now I feel as though I've done enough damage. I save the file and check to make sure that all my tests still pass...
+
+Now I that I've done enough damage. I'll save the file and check to make sure that all my tests still pass...
+
+
 
 ```clojure
 bowling
@@ -95,7 +137,8 @@ Finished in 0.00111 seconds
 
 ```
 
-They do! so now my refactored and renamed src code in its entirety is:
+They do! Now my refactored and renamed src code is cleaned up.
+
 
 ```clojure
 (ns bowling-game.core)
