@@ -3,7 +3,7 @@ layout: post
 title: Refactoring and Renaming
 ---
 
-After completing another round of the bowling-game kata, I decide to try my hand at refactoring and renaming functions. Though the code is already readable, I wanted it to be a bit more understandable for my own sake. The example src code brought me here:
+After completing another round of the bowling-game kata, I decide to try my hand at refactoring and renaming functions. Though the code is already readable, I wanted it to be a bit more understandable for my own sake. My starting point is here:
 
 
 ```clojure
